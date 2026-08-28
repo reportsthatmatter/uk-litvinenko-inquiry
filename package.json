@@ -7,6 +7,6 @@
     "build": "rtm-ingest run"
   },
   "dependencies": {
-    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.2.1"
+    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.6.0"
   }
 }

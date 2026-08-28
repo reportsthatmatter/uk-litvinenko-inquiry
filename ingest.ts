@@ -1,4 +1,4 @@
-import { pipeline } from "@rtm/ingest";
+import { pipeline, flushFootnoteMarkers } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -17,4 +17,8 @@ export default pipeline({
   volumes: [
     { path: "archive/The-Litvinenko-Inquiry-H-C-695-web.pdf", sha256: "236c70da1823f66851a0c316ca7e996e2e0365998b778df98a2bcc3acafc278e" },
   ],
+  // OCR drops the space before a superscript here, leaving ~230 notes as bare
+  // numbers in the prose. Safe for this report because its footnote numbering
+  // runs once through the whole document, so a number names one note.
+  passes: [flushFootnoteMarkers()],
 });
