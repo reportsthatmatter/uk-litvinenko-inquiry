@@ -21,3 +21,18 @@ Born-digital PDF (not a scan) — clean text layer throughout.
 
 Crown copyright 2016, licensed under the Open Government Licence v3.0.
 https://nationalarchives.gov.uk/doc/open-government-licence/version/3
+
+## Rebuilding the text
+
+`full.md` is generated, never hand-edited. `ingest.ts` is the whole recipe —
+which PDFs, in what order, with what metadata, and which pipeline passes.
+
+```bash
+pnpm install
+pnpm exec tsx ../reportsthatmatter/scripts/ingest/cli.ts run litvinenko-inquiry
+```
+
+Corrections to the text go in `corrections.yaml`, never into `full.md`. Each
+must match exactly once or the build fails naming it. `baseline.json` is the
+regression digest: if a pipeline change moves this report's output, it fails
+until the baseline moves with it after the diff has been read.
