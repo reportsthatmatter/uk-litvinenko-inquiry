@@ -1,11 +1,11 @@
 {
-  "markdownSha": "a3c998c758cb3815691f8c9a40b6e65d89265b72bfe6c73258fccebe2c7bb206",
-  "words": 134855,
+  "markdownSha": "7d39be3e0eb84b0ca9cab361f105c649de3003e4ee64591c2319d9c0a100cfc6",
+  "words": 135041,
   "blocks": {
     "heading": 67,
-    "quote": 375,
+    "quote": 559,
     "list": 142,
-    "paragraph": 2417
+    "paragraph": 2188
   },
   "headings": [
     "Part 1: Preface",

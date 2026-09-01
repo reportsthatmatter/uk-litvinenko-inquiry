@@ -1,4 +1,4 @@
-import { pipeline, flushFootnoteMarkers } from "@rtm/ingest";
+import { pipeline, flushFootnoteMarkers, quoteInset } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -20,5 +20,10 @@ export default pipeline({
   // OCR drops the space before a superscript here, leaving ~230 notes as bare
   // numbers in the prose. Safe for this report because its footnote numbering
   // runs once through the whole document, so a number names one note.
-  passes: [flushFootnoteMarkers()],
+  passes: [
+    flushFootnoteMarkers(),
+    // Body text sits at column 7, quotations at 10. The default of five puts
+    // every quotation in this report back into the prose.
+    quoteInset(3),
+  ],
 });
