@@ -36,3 +36,24 @@ Corrections to the text go in `corrections.yaml`, never into `full.md`. Each
 must match exactly once or the build fails naming it. `baseline.json` is the
 regression digest: if a pipeline change moves this report's output, it fails
 until the baseline moves with it after the diff has been read.
+
+## Checking the text
+
+```bash
+pnpm test
+```
+
+Runs `check.mjs` against the committed `full.md` — no source PDF, no
+re-ingest needed. Each assertion exists because the thing it describes was
+once live on the site (#1), and none of them was visible to the pipeline's own
+fidelity gates, which count words rather than reading them in order:
+
+- numbered paragraphs survive as paragraphs, not block quotes
+- no paragraph runs straight into a quotation mid-sentence
+- the genuine quotations are still quotations
+- footnote markers are linked rather than left as bare numbers
+- every footnote reference resolves
+
+Verified to fail on the text as it stood when #1 was reported (46.6% severed
+against a 20% limit) and pass on the text as it stands now (10.5%).
+

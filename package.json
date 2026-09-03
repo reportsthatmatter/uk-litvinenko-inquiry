@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Source archive and ingestion definition for The Litvinenko Inquiry",
   "scripts": {
-    "build": "rtm-ingest run"
+    "test": "node check.mjs",
+    "build": "tsx ../reportsthatmatter/scripts/ingest/cli.ts run litvinenko-inquiry"
   },
   "dependencies": {
     "@rtm/ingest": "github:reportsthatmatter/ingest#v0.10.2"
