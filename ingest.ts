@@ -1,4 +1,4 @@
-import { pipeline, flushFootnoteMarkers, quoteInset } from "@rtm/ingest";
+import { pipeline, flushFootnoteMarkers, quoteInset, numberedParagraphs } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -25,5 +25,8 @@ export default pipeline({
     // Body text sits at column 7, quotations at 10. The default of five puts
     // every quotation in this report back into the prose.
     quoteInset(3),
+    // Numbered "3.77" paragraphs, at the margin with no reliable blank line
+    // before the next one (reportsthatmatter-hzf).
+    numberedParagraphs(),
   ],
 });

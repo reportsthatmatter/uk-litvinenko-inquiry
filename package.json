@@ -8,6 +8,6 @@
     "build": "tsx ../reportsthatmatter/scripts/ingest/cli.ts run litvinenko-inquiry"
   },
   "dependencies": {
-    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.11.0"
+    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.12.7"
   }
 }
