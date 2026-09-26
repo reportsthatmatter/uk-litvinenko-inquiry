@@ -1,6 +1,6 @@
 {
-  "markdownSha": "533c1a0289a0844a34571bda46468e228322ea5d26d667285339627a9b645c68",
-  "words": 135848,
+  "markdownSha": "125938b0b103f429f13e6d563bd5b2f4ba43193aadb36f1d7f485a637b0dcaaa",
+  "words": 135856,
   "blocks": {
     "heading": 67,
     "quote": 559,
@@ -76,7 +76,7 @@
     "Appendix 12: Closed appendices",
     "Notes"
   ],
-  "footnotes": 858,
+  "footnotes": 857,
   "pageMarkers": 326,
   "poppler": "26.08.0"
 }
