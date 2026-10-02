@@ -1,4 +1,5 @@
 import {
+  quoteListRunOns,
   pipeline,
   runningFurniture,
   flushFootnoteMarkers,
@@ -29,6 +30,8 @@ export default pipeline({
   // numbers in the prose. Safe for this report because its footnote numbering
   // runs once through the whole document, so a number names one note.
   passes: [
+    // A quotation running over a page arrives as two (reportsthatmatter-38s.9).
+    quoteListRunOns(),
     // The running title ("The Litvinenko Inquiry", recto) and the part tab
     // ("Part 3 | Chapters 1 to 5 | …", verso) open every page. Undeclared, they
     // stood as 132 + 109 paragraphs and were spliced into sentences at page
