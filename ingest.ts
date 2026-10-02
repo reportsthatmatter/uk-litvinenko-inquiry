@@ -1,4 +1,4 @@
-import {
+import { layoutPageJoins,
   quoteListRunOns,
   pipeline,
   runningFurniture,
@@ -30,6 +30,10 @@ export default pipeline({
   // numbers in the prose. Safe for this report because its footnote numbering
   // runs once through the whole document, so a number names one note.
   passes: [
+    // A paragraph run over a page break that opens on a capital, a digit or a
+    // quotation mark (or follows a full stop on a justified page) joins when the
+    // layout says it runs on: no first-line indent, same face (reportsthatmatter-38s.10).
+    layoutPageJoins(),
     // A quotation running over a page arrives as two (reportsthatmatter-38s.9).
     quoteListRunOns(),
     // The running title ("The Litvinenko Inquiry", recto) and the part tab
