@@ -1,11 +1,11 @@
 {
-  "markdownSha": "125938b0b103f429f13e6d563bd5b2f4ba43193aadb36f1d7f485a637b0dcaaa",
-  "words": 135856,
+  "markdownSha": "f6d88b7278c34db7af07f5e9acb455fca24931e8e6436054938dd8d5c7a9d188",
+  "words": 133086,
   "blocks": {
-    "heading": 67,
-    "quote": 559,
+    "heading": 61,
+    "quote": 375,
     "list": 142,
-    "paragraph": 2348
+    "paragraph": 2133
   },
   "headings": [
     "Part 1: Preface",
@@ -22,7 +22,6 @@
     "Chapter 4: Work for the Mitrokhin Commission in Italy",
     "Chapter 5: Work for the Spanish security services",
     "Chapter 6: Private security work",
-    "Chapter 1: Introduction",
     "Chapter 2: The 2006 Russian laws",
     "Chapter 3: Continued opposition to President Putin",
     "Chapter 4: Did Alexander Litvinenko fall out with and/or attempt to blackmail Boris Berezovsky?",
@@ -64,11 +63,6 @@
     "Appendix 5: Dramatis personae",
     "Appendix 6: Abbreviations",
     "Appendix 7: Restriction Notices and Orders",
-    "RESTRICTION ORDER",
-    "RESTRICTION ORDER",
-    "RESTRICTION ORDER",
-    "RESTRICTION ORDER",
-    "RESTRICTION ORDER",
     "Appendix 8: Key documents",
     "Appendix 9: List of witnesses",
     "Appendix 10: List of Inquiry staff and counsel",
@@ -77,6 +71,6 @@
     "Notes"
   ],
   "footnotes": 857,
-  "pageMarkers": 326,
+  "pageMarkers": 312,
   "poppler": "26.08.0"
 }
