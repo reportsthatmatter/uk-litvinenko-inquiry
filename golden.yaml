@@ -1,0 +1,127 @@
+# Golden pages: ground truth for this report, read off the PDF page image and checked by `pnpm ingest verify`.
+# Format and rules: @rtm/ingest src/golden.ts and the site's docs/quality-harness.md ("Golden pages").
+# A page marked xfail is a known pipeline defect: it stays red here, verify stays green, and the bead says why.
+pages:
+  # A lettered sub-item of 3.120 that was once severed into a quotation (class A); a sub-heading the pipeline misses.
+  - pdf: 35
+    printed: 34
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [A, I, F]
+    xfail: reportsthatmatter-men
+    xfail_only: [blocks]
+    blocks:
+      - paragraph: {start: "3.117 Mr Litvinenko was worse again", end: "ought to be taken straight to hospital.", notes: [103, 104, 105]}
+      - paragraph: {start: "3.118 Accordingly, Mrs Litvinenko again rang", end: "where he was immediately admitted.", notes: [106]}
+      - heading: "Treatment in Barnet Hospital"
+      - paragraph: {start: "3.119 Dr Andres Virchis, a consultant", end: "medical notes from Barnet Hospital.", notes: [107, 108]}
+      - paragraph: {start: "3.120 The evidence that I received", end: "may be summarised as follows:"}
+      - paragraph: {start: "a. Mr Litvinenko had been suffering", end: "from the vomiting and diarrhoea", notes: [109, 110, 111, 112]}
+      - paragraph: {start: "b. On 4 November Mr Litvinenko", continues: true, notes: [113, 114]}
+    footnotes: [103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+    markers: [103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+    must_contain: ["suffering from abdominal pain, profuse diarrhoea and vomiting for two days when he was taken to hospital"]
+    must_not_be_quote: ["vomiting for two days"]
+  # Part and chapter openers with no body; the part title reads "Part: 5" (colon).
+  - pdf: 86
+    printed: 85
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [I, G]
+    xfail: reportsthatmatter-8rv
+    xfail_only: [blocks, markers]
+    blocks:
+      - heading: "Part: 5 Alexander Litvinenko’s final months"
+      - heading: "Chapter 1: Introduction"
+      - paragraph: {start: "5.1 The summer and early autumn of 2006", end: "immediately preceded Mr Litvinenko’s death."}
+    footnotes: []
+    markers: []
+  # Footnote numbers restart in each chapter (2-5 here); the note block was left in the body as a paragraph.
+  - pdf: 111
+    printed: 110
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [E, F]
+    xfail: reportsthatmatter-lj4
+    xfail_only: [blocks, footnotes, markers]
+    blocks:
+      - heading: "Chapter 2: Introduction to the scientific evidence"
+      - paragraph: {start: "6.6 I have referred above", end: "some weeks before his death."}
+      - paragraph: {start: "6.7 This Part of the Report", end: "associated with all three."}
+      - paragraph: {start: "6.8 The monitoring of the scenes", end: "Health Protection Agency (HPA).", notes: [2]}
+      - paragraph: {start: "6.9 Witness A1 was one", end: "provided to the Inquiry.", notes: [3]}
+      - paragraph: {start: "6.10 A1 gave evidence", end: "spectrometry equipment.", notes: [4]}
+      - paragraph: {start: "6.11 The first and most basic question", end: "caused by polonium 210.", notes: [5]}
+    footnotes: [2, 3, 4, 5]
+    markers: [2, 3, 4, 5]
+  # An ordinary page: numbered paragraphs, italic quotation inside a paragraph, four markers (one in an italic line).
+  - pdf: 100
+    printed: 99
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [ordinary, F]
+    blocks:
+      - paragraph: {start: "d. Dr Svetlichnaya made contact with", end: "present at the last meeting", notes: [35]}
+      - paragraph: {start: "5.54 There is one particular element", end: "That kind of person.”", notes: [36, 37, 38]}
+      - paragraph: {start: "5.55 I emphasise at this stage", end: "in significant respects."}
+      - paragraph: {start: "5.56 The view that I have", end: "view for the following reasons."}
+      - paragraph: {start: "5.57 First, the principal allegation", end: "to have included Mr Berezovsky."}
+      - paragraph: {start: "5.58 Second, although on Dr Svetlichnaya", end: "even started to implement them."}
+    footnotes: [35, 36, 37, 38]
+    markers: [35, 36, 37, 38]
+  # Appendix table (dramatis personae): each row is one cell group and must not be split into prose and quotations.
+  - pdf: 284
+    printed: 283
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [tables, A]
+    xfail: reportsthatmatter-2nx
+    xfail_only: [must_contain, must_not_be_quote]
+    must_contain:
+      - "A1 Nuclear forensic scientist and senior case officer, formerly employed by Atomic Weapons Establishment"
+      - "D6 Worked at Il Porto with C2, D7 and Kovtun"
+      - "Mr Roman Abramovich Russian businessman and former business associate of Mr Berezovsky"
+    must_not_be_quote: ["Nuclear forensic scientist and senior", "Contemporary History, University of Cambridge"]
+  # A restriction order: centred titles the pipeline reads as furniture, a lettered list, a signature block.
+  - pdf: 310
+    printed: 309
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [K, I, tables]
+    xfail: reportsthatmatter-2nx
+    xfail_only: [blocks]
+    blocks:
+      - heading: "RESTRICTION ORDER"
+      - heading: "Witness Anonymity and Screening"
+      - paragraph: {start: "1 There shall be no disclosure", end: "using the initials listed in paragraph 2."}
+      - paragraph: {start: "2 The individuals in question are:", end: "individuals in question are:"}
+      - paragraph: {start: "a. A3", end: "a. A3"}
+      - paragraph: {start: "b. C2", end: "b. C2"}
+      - paragraph: {start: "c. C3", end: "c. C3"}
+      - paragraph: {start: "d. D3", end: "d. D3"}
+      - paragraph: {start: "e. D6", end: "e. D6"}
+      - paragraph: {start: "f. D7", end: "f. D7"}
+      - paragraph: {start: "3 In the event that A3 is required", end: "Counsel for the core participants."}
+      - paragraph: {start: "4 Until further order", end: "of any link to their previous pseudonyms."}
+      - paragraph: {start: "This Order is made under section 19(1)", end: "including Core Participants."}
+      - paragraph: {start: "In the case of public authorities", end: "of the Inquiries Act 2005."}
+      - paragraph: {start: "Any person affected by this Order", end: "to vary its terms."}
+      - paragraph: {start: "Sir Robert Owen", end: "Sir Robert Owen"}
+      - paragraph: {start: "9 October 2014", end: "9 October 2014"}
+  # Two block quotations (3.176, 3.178) and a quoted list (i)-(iv) in 3.177, a subhead, and a carried-over paragraph: the page quoteInset(3) exists for.
+  - pdf: 49
+    printed: 48
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [A, D, I, F]
+    xfail: reportsthatmatter-men, reportsthatmatter-b94
+    xfail_only: [blocks, markers]
+    continues_previous: true
+    opens_with: "bone marrow failure, multi-organ failure and the development of alopecia"
+    blocks:
+      - paragraph: {start: "3.174 Third, Dr Cary noted the findings", end: "ingested a quantity of polonium 210.", notes: [202]}
+      - paragraph: {start: "3.175 Fourth, Dr Cary noted the findings of Dr Harrison", end: "known survivability limits."}
+      - paragraph: {start: "3.176 Fifth, Dr Cary concluded:", end: "Dr Cary concluded:"}
+      - quote: {start: "“I am entirely satisfied that on the basis of both", end: "acute radiation syndrome may be recorded.”", notes: [203]}
+      - paragraph: {start: "3.177 Sixth, Dr Cary listed a number of possibilities", end: "namely:"}
+      - quote: {start: "“(i) Due to bone marrow failure", end: "(iv) A combination of some or all of the above.”", notes: [204]}
+      - heading: "Dr Harrison and his colleagues"
+      - paragraph: {start: "3.178 In one of his written reports, Dr Harrison explained", end: "He said:"}
+      - quote: {start: "“Ionizing radiations, including gamma rays and alpha particles", end: "organ failure and death.”", notes: [205]}
+      - paragraph: {start: "3.179 Having ascertained (see above) that Mr Litvinenko", continues: true}
+    footnotes: [201, 202, 203, 204, 205]
+    markers: [201, 202, 203, 204, 205]
+    must_be_quote: ["I am entirely satisfied that on the basis of both the calculated exposure", "(i) Due to bone marrow failure there was a final episode of sepsis", "Ionizing radiations, including gamma rays and alpha particles"]
