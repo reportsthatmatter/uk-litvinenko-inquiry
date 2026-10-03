@@ -1,11 +1,11 @@
 {
-  "markdownSha": "4089336b2338d084fac75976f751a2c9550b136e4988e29f79629b151e3ca257",
-  "words": 133071,
+  "markdownSha": "8c92a86909d191c978ce007bf46ce2c72b2eb0b47f3b9c23448cbac510ccae52",
+  "words": 132906,
   "blocks": {
     "heading": 61,
     "quote": 360,
     "list": 142,
-    "paragraph": 2118
+    "paragraph": 2126
   },
   "headings": [
     "Part 1: Preface",
@@ -70,7 +70,7 @@
     "Appendix 12: Closed appendices",
     "Notes"
   ],
-  "footnotes": 857,
-  "pageMarkers": 312,
+  "footnotes": 844,
+  "pageMarkers": 313,
   "poppler": "26.08.0"
 }

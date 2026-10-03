@@ -2,7 +2,7 @@ import { layoutPageJoins,
   quoteListRunOns,
   pipeline,
   runningFurniture,
-  flushFootnoteMarkers,
+  layoutMarkers,
   quoteInset,
   numberedParagraphs,
   hangingIndents,
@@ -45,7 +45,11 @@ export default pipeline({
     // "Chapter 1: Introduction" read as furniture and go, and the printed pages
     // that carry only the running title (blank versos) lose their markers.
     runningFurniture({ numbersTrackPages: true }),
-    flushFootnoteMarkers(),
+    // The markers are the small raised digits the PDF sets, found by the words before them and
+    // linked to the note on their page. They replace `flushFootnoteMarkers`: with only some markers
+    // linked, the renderer's alignment of repeated labels took early definitions and opened 20 notes
+    // from another page; linked all together, none do (reportsthatmatter-y0w9, b94).
+    layoutMarkers(),
     // Body text sits at column 7, quotations at 10. The default of five puts
     // every quotation in this report back into the prose.
     quoteInset(3),
