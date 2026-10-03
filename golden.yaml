@@ -27,7 +27,7 @@ pages:
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [I, G]
     xfail: reportsthatmatter-8rv
-    xfail_only: [blocks, markers]
+    xfail_only: [blocks]
     blocks:
       - heading: "Part: 5 Alexander Litvinenko’s final months"
       - heading: "Chapter 1: Introduction"
@@ -107,8 +107,8 @@ pages:
     printed: 48
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [A, D, I, F]
-    xfail: reportsthatmatter-men, reportsthatmatter-b94
-    xfail_only: [blocks, markers]
+    xfail: reportsthatmatter-men
+    xfail_only: [blocks]
     continues_previous: true
     opens_with: "bone marrow failure, multi-organ failure and the development of alopecia"
     blocks:
