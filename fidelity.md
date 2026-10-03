@@ -1,6 +1,6 @@
 # Fidelity review — The Litvinenko Inquiry
 
-Pages: 329  ·  Footnotes: 844  ·  Auto-fixes applied: 0  ·  Human corrections: 0
+Pages: 329  ·  Footnotes: 873  ·  Auto-fixes applied: 0  ·  Human corrections: 0
 
 **48 open**, 0 reviewed and judged correct.
 
