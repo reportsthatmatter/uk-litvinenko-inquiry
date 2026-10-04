@@ -7,6 +7,7 @@ import { layoutPageJoins,
   numberedParagraphs,
   hangingIndents,
   letteredItems,
+  footnoteRestarts,
 } from "@rtm/ingest";
 
 /**
@@ -50,6 +51,10 @@ export default pipeline({
     // linked, the renderer's alignment of repeated labels took early definitions and opened 20 notes
     // from another page; linked all together, none do (reportsthatmatter-y0w9, b94).
     layoutMarkers(),
+    // Notes start over at 1 in each Part; a Part's first page with only its
+    // note 1 (Part 6, p.109) lost the Part's first notes to the body
+    // (reportsthatmatter-n7fb).
+    footnoteRestarts(),
     // Body text sits at column 7, quotations at 10. The default of five puts
     // every quotation in this report back into the prose.
     quoteInset(3),

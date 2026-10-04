@@ -51,13 +51,12 @@ pages:
       - paragraph: {start: "5.1 The summer and early autumn of 2006", end: "immediately preceded Mr Litvinenko’s death."}
     footnotes: []
     markers: []
-  # Footnote numbers restart in each chapter (2-5 here); the note block was left in the body as a paragraph.
+  # Footnote numbers restart in each Part (2-5 here); the note block was left in the body as a paragraph
+  # until footnoteRestarts (reportsthatmatter-lj4, -n7fb).
   - pdf: 111
     printed: 110
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [E, F]
-    xfail: reportsthatmatter-lj4
-    xfail_only: [blocks, footnotes, markers]
     blocks:
       - heading: "Chapter 2: Introduction to the scientific evidence"
       - paragraph: {start: "6.6 I have referred above", end: "some weeks before his death."}
