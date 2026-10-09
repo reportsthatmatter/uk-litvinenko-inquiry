@@ -1,0 +1,353 @@
+report: litvinenko-inquiry
+adjudicated: 2026-10-09
+by: "Claude (Opus 5.5) subagent, blind to the rules' call, reading the page images (2026-10-09, reportsthatmatter-sh1b/nen); the pipeline at v0.24.0 disagreed with none of the 25 it judges, so no second read was needed"
+method: "Mini-reference for a report with no clean edition (38s.15; scripts/ingest/pagebreak-sample.ts, `pnpm ingest referee draft`). Population: every page turn, the last line of running text on the old page and the first on the new (pdftohtml -xml; notes, running heads and folios left out). 15 drawn by a seeded shuffle (stratum random), then 5 from each confidence tier of the layout rules at @rtm/ingest v0.21.0 (stratum tier-low/medium/high; a short tier topped up from the others). Each break was answered from the rendered page images (the foot of the old page, the head of the new one), blind to the rules' call: does a new block (paragraph, bullet, numbered paragraph, quotation, heading) start between the two lines, or does the block run on? prev and next are the running-text lines either side; when notes, a caption or a heading stand between, the verdict says whether the paragraph's text continues on the new page, and `between` names what stands between. `set` assigns the break to development or held-out (alternating within each stratum, seeded); `tier` and `rule` are the rules' call at v0.21.0 when drawn."
+seed: "38s.15"
+breaks:
+  - page: 8
+    prev: "Closed appendices "
+    next: "Part 1:  Preface"
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: font changes across the break"
+    between: none
+    image: true
+    note: "Contents page ends; Part 1 heading opens the new page"
+  - page: 15
+    prev: "also influenced, even at that young age, by a desire to serve and defend his country. "
+    next: "She said that he regarded his grandfather, who had fought in the Second World War, "
+    verdict: join
+    stratum: tier-low
+    set: held-out
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "3.5 ends a sentence at the foot, but the new page opens unnumbered at the text indent: 3.5 runs on"
+  - page: 23
+    prev: "The interview was filmed during the night of 19 April 1998 at Mr Berezovsky’s dacha. "
+    next: "Marina Litvinenko was there. The interview (which featured Mr Litvinenko, Andrei "
+    verdict: join
+    stratum: tier-low
+    set: dev
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "3.51 ends a sentence at the foot, but the new page opens unnumbered at the text indent: 3.51 runs on"
+  - page: 28
+    prev: "Moscow for Nalchik, saying that he was flying to Nalchik to visit relatives.68 "
+    next: "3.82 Having arrived in Nalchik, Mr Litvinenko crossed into neighbouring Georgia. Once he "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: next opens on a label"
+    between: notes
+    image: true
+    note: "numbered paragraph 3.82"
+  - page: 37
+    prev: "head.124 Mrs Michenina gave oral evidence and had a clear memory of this incident. "
+    next: "Her recollection was that when she went to the hospital for this purpose, a doctor "
+    verdict: join
+    stratum: tier-low
+    set: held-out
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "3.121 ends a sentence at the foot, but the new page opens unnumbered at the text indent: 3.121 runs on"
+  - page: 76
+    prev: "was CEO of RISC in the period 2005–6.98 He explained that ISC had been set up in "
+    next: "2000 by Stephen Curtis and Nigel Brown. Mr Curtis was a lawyer with a large network "
+    verdict: join
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "R1: unfinished, next line flush (a bare number)"
+    between: notes
+    image: true
+    note: "sentence unfinished ('set up in' / '2000 by')"
+  - page: 96
+    prev: "However recalling now the details of my meetings with Litvinenko, his conviction "
+    next: "that the compromising materials he possessed could have fundamentally changed "
+    verdict: join
+    stratum: tier-high
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: none
+    image: true
+    note: "the italic block quotation's sentence is unfinished"
+  - page: 115
+    prev: "now called Inna Hohne. Ms Hohne lives in Germany and did not respond to requests "
+    next: "to give oral evidence to the Inquiry. I was able, however, to hear evidence about "
+    verdict: join
+    stratum: tier-high
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence unfinished ('requests' / 'to give')"
+  - page: 117
+    prev: "to believe that he was already ill himself or didn’t know that.”23 "
+    next: "If Mr Kovtun was handling or carrying polonium 210 at around this time, it does not of "
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: font changes across the break"
+    between: notes
+    image: true
+    note: "the old page ends on an inset italic quotation; the new page returns to roman prose at the text indent"
+  - page: 118
+    prev: "referred. "
+    next: "Chapter 4:  Visa applications "
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: font changes across the break"
+    between: notes
+    image: true
+    above: "She added that he had not explained the identity of the “arseholes” to whom he had "
+    note: "Chapter 4 heading on a new page"
+  - page: 129
+    prev: "Mr Reilly’s plan of the Erinys boardroom68 "
+    next: "6.93 The second point concerns the refreshments provided at the meeting. Mr Reilly’s "
+    verdict: split
+    stratum: tier-low
+    set: dev
+    tier: high
+    rule: "split: next opens on a label"
+    between: figure
+    image: true
+    drawn: "low;  Reilly’s plan of the Erinys boardroom68 / Police photograph of the Erinys boardroo"
+    note: "Corrected next: id 1 is a figure title. The old page (127) is a full-page figure whose only text is its title (id 2), so it has no running-text line and prev is kept for want of one. The new page has a second figure and title, then numbered paragraph 6.93 (id 2): split"
+  - page: 139
+    prev: "where Mr Lugovoy purchased more drinks. The receipts make it clear that Mr Lugovoy "
+    next: "was in the club that evening.128 The evidence was that the two men had returned to "
+    verdict: join
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence unfinished ('Mr Lugovoy' / 'was in the club')"
+  - page: 157
+    prev: "the  aircraft  that  made  the  flight  that  day  was  G-EUUG.  DI  Mascall  explained  that "
+    next: "that particular plane was never tested because it was not believed to be at risk of "
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence unfinished ('explained that' / 'that particular plane')"
+  - page: 160
+    prev: "appears never to have put his proposal to him at all. "
+    next: "6.250 In conclusion, the question that I posed at the outset of this section remains unanswered. "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: next opens on a label"
+    between: notes
+    image: true
+    note: "numbered paragraph 6.250"
+  - page: 165
+    prev: "whether D3’s account of his conversation with Mr Kovtun in Hamburg should be "
+    next: "believed. Something else that will be of relevance to this issue is the action that "
+    verdict: join
+    stratum: tier-high
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence unfinished ('should be' / 'believed.')"
+  - page: 189
+    prev: "intake of polonium 210 and the meeting at Erinys on 16 October 2006. "
+    next: "8.39 Second, although that date is at one end of the combined date ranges provided by the "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: next opens on a label"
+    between: none
+    image: true
+    note: "numbered paragraph 8.39"
+  - page: 208
+    prev: "Litvinenko the following day, 2 November, at RISC Management. "
+    next: "There would have been many other opportunities in the immediate future, both in "
+    verdict: split
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: none
+    image: true
+    sure: false
+    note: "Inside a block quotation whose paragraphs are flush and spaced. The old page ends on a full stop with about one line of room left at the foot (no notes), so the text would likely have filled it if this were the same paragraph. That suggests a new quoted paragraph. By content the new line restates 'many other opportunities', which could go either way"
+  - page: 212
+    prev: "Mr Litvinenko’s death. "
+    next: "Chapter 3:  UK intelligence agencies "
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: font changes across the break"
+    between: notes
+    image: true
+    note: "Chapter 3 heading"
+  - page: 220
+    prev: "fingerprint for different ‘batches’ of Polonium 210. "
+    next: "No radionuclides other than Polonium 210 were identified by gamma counting of "
+    verdict: split
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    sure: false
+    note: "Inside a block quotation whose paragraphs are flush and spaced, and the old page ends on a full stop. By content: the old page is about the commercial sample, the new line turns to the MPS exhibits, which looks like a new quoted paragraph. Could equally be one paragraph"
+  - page: 233
+    prev: "kidnapped and killed, possibly by a rival Chechen faction. If the intelligence that the "
+    next: "police are said to have received about Mr Atlangeriev was true, this event is evidence "
+    verdict: join
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence unfinished ('intelligence that the' / 'police are said')"
+  - page: 235
+    prev: "assassination. One of the risks they faced was that of being poisoned. "
+    next: "Chapter 9:"
+    verdict: split
+    stratum: tier-high
+    set: dev
+    tier: high
+    rule: "split: font changes across the break"
+    between: none
+    image: true
+    drawn: "high; s they faced was that of being poisoned. / Russian State responsibility – links"
+    note: "Corrected next: the chapter heading starts at 'Chapter 9:' (id 1), not its second line (id 2). Paragraph 9.155 ends with the rest of the old page blank, and Chapter 9 starts on the new page"
+  - page: 245
+    prev: "ties to Mr Putin, that he would have been a party to such a plot in the first place. "
+    next: "9.214 As I have indicated, Professor Service did not address the express question of "
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: next opens on a label"
+    between: notes
+    image: true
+    note: "numbered paragraph 9.214"
+  - page: 259
+    prev: "that the device in question was used in silent mode and there was no disruption to "
+    next: "proceedings. This was in practice superseded by the arrangements set out in the "
+    verdict: join
+    stratum: tier-high
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: none
+    image: true
+    note: "sentence unfinished ('disruption to' / 'proceedings.')"
+  - page: 273
+    prev: "3/55-56 "
+    next: "21 March 1998 "
+    verdict: split
+    stratum: tier-low
+    set: dev
+    tier: low
+    rule: "split: unfinished, no line under next (a bare number)"
+    between: none
+    image: true
+    above: "6); Marina Litvinenko "
+    drawn: "low; plot to assassinate him / AL, Viktor Shebalin (VShe), Andrei"
+    note: "Chronology table (Appendix 4). Corrected both lines to the row bounds. The old page's last row (28 February 1998) closes with its border at the foot (last cell line 3/55-56, id 74). The new page opens a new row, 21 March 1998 (id 1)"
+  - page: 280
+    prev: "Millennium Hotel "
+    next: "8.20pm. Lugovoy checked in at "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: low
+    rule: "split: unfinished, but a short last line"
+    between: none
+    image: true
+    drawn: "high; ovoy and others arrived at Mascall 16/13 / 8.20pm. Lugovoy checked in at"
+    note: "Chronology table. Corrected prev to the row's last line, 'Millennium Hotel' (id 57). The row closes at the foot of the old page and a new row (8.20pm) opens the new page"
+  - page: 281
+    prev: "Mascall 16/71 "
+    next: "3.00pm. AL met MS at Eros statue, "
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: none
+    image: true
+    above: "2.32pm & 2.55pm. AL called Lugovoy "
+    drawn: "low; 2.32pm & 2.55pm. AL called Lugovoy / 3.00pm. AL met MS at Eros statue,"
+    note: "Chronology table. Corrected prev to the row's last cell, 'Mascall 16/71' (id 69). The row closes at the foot of the old page and a new row (3.00pm) opens the new page"
+  - page: 295
+    prev: "poisoned in 2004 "
+    next: "Mr "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: low
+    rule: "split: unfinished, no line under next"
+    between: none
+    image: true
+    above: "Ukranian presidential candidate "
+    drawn: "low; poisoned in 2004 / Yushenkov"
+    note: "Table of people. Corrected next to the start of the row, 'Mr' (id 1), not its third cell. The Yuschenko row closes at the foot of the old page and the Yushenkov row opens the new page"
+  - page: 297
+    prev: "intensive care unit "
+    next: "IMO "
+    verdict: split
+    stratum: random
+    set: dev
+    tier: low
+    rule: "split: unfinished, but a short last line"
+    between: none
+    image: true
+    drawn: "low; intensive care unit / International Maritime Organisation"
+    note: "Glossary table. Corrected next to the row start, 'IMO' (id 1). New row"
+  - page: 312
+    prev: "14 November 2014 "
+    next: "RESTRICTION ORDER "
+    verdict: split
+    stratum: tier-medium
+    set: dev
+    tier: high
+    rule: "split: font changes across the break"
+    between: none
+    image: true
+    above: "Sir Robert Owen "
+    drawn: "medium; the core participants. / to identify the individual who will be r"
+    note: "Both lines corrected. The drawn prev (id 12) is mid-page; the old page actually ends with the signature and date, '14 November 2014' (id 20). The drawn next (id 5) is the second line of item 1; the new page starts a new Restriction Order with its heading 'RESTRICTION ORDER' (id 2)"
+  - page: 313
+    prev: "27 November 2014 "
+    next: "RESTRICTION ORDER"
+    verdict: split
+    stratum: tier-medium
+    set: dev
+    tier: high
+    rule: "split: font changes across the break"
+    between: none
+    image: true
+    above: "Sir Robert Owen "
+    drawn: "medium; led from security cleared inquiry staff. / The screening orders dated 9 October 201"
+    note: "Both lines corrected. The drawn prev (id 14) is mid-page; the old page actually ends with the signature and date, '27 November 2014' (id 22). The drawn next (id 3) is the order's first body line; the new page starts a new Restriction Order with its heading 'RESTRICTION ORDER' (id 1)"
