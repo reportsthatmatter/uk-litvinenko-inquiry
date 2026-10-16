@@ -17,10 +17,9 @@ https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/493860
 
 Born-digital PDF (not a scan) — clean text layer throughout.
 
-## License
+## Licence
 
-Crown copyright 2016, licensed under the Open Government Licence v3.0.
-https://nationalarchives.gov.uk/doc/open-government-licence/version/3
+Text of the report: Crown copyright 2016, Open Government Licence v3.0. Our markup, processing and editorial additions: CC BY 4.0. Code: MIT. Evidence, caveats and the full statement are in [LICENSE](LICENSE); the MIT text is in [LICENSE-MIT](LICENSE-MIT).
 
 ## Rebuilding the text
 
