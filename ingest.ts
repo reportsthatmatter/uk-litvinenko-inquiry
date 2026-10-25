@@ -76,7 +76,7 @@ export default pipeline({
     // black body: Part titles in Arial 33 bold blue, chapter titles in Arial 30 bold blue, the
     // unnumbered topics ("Treatment in Barnet Hospital", PDF p.35) in ArialMT 26 blue and the
     // topics under those ("The pathologists", p.48) in ArialMT 22 blue; Appendix 7's notices
-    // and orders are titled in Arial 30 bold black, their sections in ArialMT 22 black (p.298).
+    // and orders are titled in Arial 30 bold black (No. 4 in 26), their sections in ArialMT 22 black (p.298).
     // The text reading knows Parts and chapters by their "Part N:" / "Chapter N:" labels but
     // read the ~180 topics as one-line paragraphs (reportsthatmatter-men), and Part 5's title
     // as a paragraph, leaving Part 5 under Part 4 (reportsthatmatter-8rv; corrections.yaml
@@ -91,7 +91,8 @@ export default pipeline({
       skipMarked: true,
       faces: [
         ["Arial|33|#6a86b8|b"],
-        ["Arial|30|#6a86b8|b", "Arial|30|#000000|b"],
+        // (Restriction Notice No. 4, p.307, alone sets its title in Arial 26 bold black)
+        ["Arial|30|#6a86b8|b", "Arial|30|#000000|b", "Arial|26|#000000|b"],
         ["ArialMT|26|#6a86b8", "ArialMT|22|#000000"],
         ["ArialMT|22|#6a86b8"],
       ],
