@@ -16,4 +16,10 @@
 #     reason: small-font OCR; checked against the scan
 #     added: 2026-08-28
 version: 1
-corrections: []
+corrections:
+  - id: c-0001
+    where: { volume: 1, printed: 85 }
+    find: "Part: 5 Alexander"
+    replace: "Part 5: Alexander"
+    reason: the Part 5 title page sets the colon before the number; the contents (printed 3) and every other Part title read "Part N:" (reportsthatmatter-8rv)
+    added: 2026-10-25

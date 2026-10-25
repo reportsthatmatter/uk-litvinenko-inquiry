@@ -8,6 +8,7 @@ import { layoutPageJoins,
   hangingIndents,
   letteredItems,
   footnoteRestarts,
+  typographicHeadings,
 } from "@rtm/ingest";
 
 /**
@@ -42,10 +43,13 @@ export default pipeline({
     // stood as 132 + 109 paragraphs and were spliced into sentences at page
     // breaks (reportsthatmatter-56s). `numbersTrackPages` keeps the chapter
     // headings that open Parts 6, 10 and 12 (three more are lost without it).
-    // Known cost: the five "RESTRICTION ORDER" titles in Appendix 7 and Part 5's
-    // "Chapter 1: Introduction" read as furniture and go, and the printed pages
-    // that carry only the running title (blank versos) lose their markers.
-    runningFurniture({ numbersTrackPages: true }),
+    // `keep`: Parts 4, 5, 6, 8 and 9 each open on the same "Chapter 1:  Introduction",
+    // five identical lines at the head of a page, which went as a running head
+    // (reportsthatmatter-8rv). Known cost: the five "RESTRICTION ORDER" titles in
+    // Appendix 7 read as furniture and go (kept, the text reading makes each a
+    // top-level section), and the printed pages that carry only the running title
+    // (blank versos) lose their markers.
+    runningFurniture({ numbersTrackPages: true, keep: /^Chapter 1: Introduction$/ }),
     // The markers are the small raised digits the PDF sets, found by the words before them and
     // linked to the note on their page. They replace `flushFootnoteMarkers`: with only some markers
     // linked, the renderer's alignment of repeated labels took early definitions and opened 20 notes
@@ -68,5 +72,29 @@ export default pipeline({
     // The same for "a." / "b." sub-items, whose wrapped lines sit at that inset
     // and which must not run on into the next item.
     letteredItems(),
+    // Parts, chapters and the topics under them are told apart only by face, against an 18pt
+    // black body: Part titles in Arial 33 bold blue, chapter titles in Arial 30 bold blue, the
+    // unnumbered topics ("Treatment in Barnet Hospital", PDF p.35) in ArialMT 26 blue and the
+    // topics under those ("The pathologists", p.48) in ArialMT 22 blue; Appendix 7's notices
+    // and orders are titled in Arial 30 bold black, their sections in ArialMT 22 black (p.298).
+    // The text reading knows Parts and chapters by their "Part N:" / "Chapter N:" labels but
+    // read the ~180 topics as one-line paragraphs (reportsthatmatter-men), and Part 5's title
+    // as a paragraph, leaving Part 5 under Part 4 (reportsthatmatter-8rv; corrections.yaml
+    // c-0001 moves its stray colon). No `relevel`: Parts 1 and 2 are set in the chapter face
+    // and stay top-level sections.
+    typographicHeadings({
+      firstLevel: 2,
+      // Part 9's Chapter 5 title wraps after a comma onto a second line (PDF p.214).
+      commaWraps: true,
+      // The figure captions ("Plan of the Pine Bar", p.172) are in the 22pt blue face too, each
+      // with its note marker.
+      skipMarked: true,
+      faces: [
+        ["Arial|33|#6a86b8|b"],
+        ["Arial|30|#6a86b8|b", "Arial|30|#000000|b"],
+        ["ArialMT|26|#6a86b8", "ArialMT|22|#000000"],
+        ["ArialMT|22|#6a86b8"],
+      ],
+    }),
   ],
 });

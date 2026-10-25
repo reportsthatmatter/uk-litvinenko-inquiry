@@ -2,13 +2,11 @@
 # Format and rules: @rtm/ingest src/golden.ts and the site's docs/quality-harness.md ("Golden pages").
 # A page marked xfail is a known pipeline defect: it stays red here, verify stays green, and the bead says why.
 pages:
-  # Footnote markers set after a closing quotation mark in italic quotations (33, 35, 38): the PDF's boxes overlap, the layout took each for a line of its own and the number stayed bare (reportsthatmatter-4ef1). The sub-heading "Whistleblower" is missed (men).
+  # Footnote markers set after a closing quotation mark in italic quotations (33, 35, 38): the PDF's boxes overlap, the layout took each for a line of its own and the number stayed bare (reportsthatmatter-4ef1). The sub-heading "Whistleblower" was missed until typographicHeadings (men, 2026-10-25).
   - pdf: 22
     printed: 21
     verified_by: "Claude (Sonnet 5.5), 2026-10-03, against the page image"
     features: [F, I]
-    xfail: reportsthatmatter-men
-    xfail_only: [blocks]
     blocks:
       - paragraph: {start: "3.46 Marina Litvinenko's witness statement describes", end: "in a secret, unaccountable unit\".", notes: [33, 34, 35]}
       - paragraph: {start: "3.47 I do not regard these", end: "in London nine years later."}
@@ -24,8 +22,6 @@ pages:
     printed: 34
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [A, I, F]
-    xfail: reportsthatmatter-men
-    xfail_only: [blocks]
     blocks:
       - paragraph: {start: "3.117 Mr Litvinenko was worse again", end: "ought to be taken straight to hospital.", notes: [103, 104, 105]}
       - paragraph: {start: "3.118 Accordingly, Mrs Litvinenko again rang", end: "where he was immediately admitted.", notes: [106]}
@@ -43,8 +39,6 @@ pages:
     printed: 85
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [I, G]
-    xfail: reportsthatmatter-8rv
-    xfail_only: [blocks]
     blocks:
       - heading: "Part: 5 Alexander Litvinenko’s final months"
       - heading: "Chapter 1: Introduction"
@@ -123,7 +117,7 @@ pages:
     printed: 48
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [A, D, I, F]
-    xfail: reportsthatmatter-men
+    xfail: reportsthatmatter-nhs6
     xfail_only: [blocks]
     continues_previous: true
     opens_with: "bone marrow failure, multi-organ failure and the development of alopecia"
